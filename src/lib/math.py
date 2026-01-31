@@ -4,7 +4,7 @@ def sample(N, start, end, f: callable, warnigs: bool = True):
     x_values = []
     y_values = []
         
-    for i in range(N + 2):
+    for i in range(N + 1):
         x = start + i * (end - start) / N
         x_values.append(x)
         y_values.append(f(x))
@@ -20,9 +20,9 @@ def sample(N, start, end, f: callable, warnigs: bool = True):
             print("Δειγματοληψία OK (χωρίς NaN/inf)")
     return x_values, y_values    
 
-def derivative(x_values: list, N, start, end, f: callable):
+def derivative(x_values: list, f: callable):
     deriv_values = [None] * len(x_values)
-    h = (end - start) / N
+    h = 1e-6
     for i in range(len(x_values)):
         xi = x_values[i]
         fp = f(xi + h)
