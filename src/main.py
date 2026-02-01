@@ -1,6 +1,5 @@
-import math as m
 import matplotlib.pyplot as plt
-import lib.math as engine
+import engine
 
 def f(x): 
     d = m.radians(x)
