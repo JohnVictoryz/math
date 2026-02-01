@@ -9,7 +9,7 @@ def f(x):
  #   return x*x - x*x*x
 
 x_values, y_values = engine.sample(1000,-360,360,f)
-deriv_values = engine.derivative(x_values,1000,-360,360,f)
+deriv_values = engine.derivative(x_values,f)
 root_values = engine.root(x_values,y_values,f)
 
 plt.axvline(x=0, c="black")
