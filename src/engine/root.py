@@ -1,36 +1,3 @@
-import math as m
-
-def sample(N, start, end, f: callable, warnigs: bool = True):
-    x_values = []
-    y_values = []
-        
-    for i in range(N + 1):
-        x = start + i * (end - start) / N
-        x_values.append(x)
-        y_values.append(f(x))
-    if warnigs == True:
-        warn_out = 0
-        for i, y in enumerate(y_values):
-            if m.isnan(y) or m.isinf(y):
-                print(f"  ΠΡΟΕΙΔΟΠΟΙΗΣΗ: y[{i}] = {y} στο x = {x_values[i]}")
-                warn_out += 1
-        if warn_out > 0:
-            print(f"  Σύνολο προειδοποιήσεων: {warn_out}")
-        else:
-            print("Δειγματοληψία OK (χωρίς NaN/inf)")
-    return x_values, y_values    
-
-def derivative(x_values: list, f: callable):
-    deriv_values = [None] * len(x_values)
-    h = 1e-6
-    for i in range(len(x_values)):
-        xi = x_values[i]
-        fp = f(xi + h)
-        fm = f(xi - h)
-        deriv = (fp - fm) / (2 * h)
-        deriv_values[i] = deriv
-    return deriv_values
-
 def root(
     x_values: list,
     y_values: list,
@@ -101,6 +68,6 @@ def root(
             if not any(abs(x - r) < 1e-6 for r in roots):
                 roots.append(x)
         else:
-            print(f"⚠️ Failed to converge in bracket [{a}, {b}]")
+            print(f"Failed to converge in bracket [{a}, {b}]")
 
     return roots
