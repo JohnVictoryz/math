@@ -1,20 +1,20 @@
+import math
 import matplotlib.pyplot as plt
-import engine
+import engine as engine
+from ui.mainwindow import startui
 
 def f(x): 
-    d = m.radians(x)
-    return (m.sin(d)*m.cos(d*d)) * 0.45
+    d = math.radians(x)
+    return (math.sin(d)*math.cos(d*d)) * 0.45
 #def f(x):
  #   return x*x - x*x*x
 
-x_values, y_values = engine.sample(1000,-360,360,f)
-deriv_values = engine.derivative(x_values,f)
-root_values = engine.root(x_values,y_values,f)
 
-plt.axvline(x=0, c="black")
-plt.axhline(y=0, c="black")
-plt.plot(x_values, y_values, label='f(x)')
-plt.plot(x_values, deriv_values, label='f\'(x)')
-plt.legend()
-plt.scatter(root_values, [0] * len(root_values), color='red', label='Ρίζες')
-plt.show()
+def compute():
+    x_values, y_values = engine.sample(f,1000,-360,360)
+    deriv_values = engine.derivative(x_values,f)
+    root_values = engine.root(x_values,y_values,f)
+
+    return x_values, y_values, deriv_values, root_values
+
+startui(compute())
