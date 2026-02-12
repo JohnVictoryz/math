@@ -13,6 +13,8 @@ This is a personal project about plotting functions and math in general this is 
 3. Run the application
 ``` python src/main.py ```
 
-## Contributing Contributions are welcome! Please feel free to submit a pull request or open an issue if you have any ideas or suggestions.
+## Contributing
+
+Contributions are welcome! Please feel free to submit a pull request or open an issue if you have any ideas or suggestions.
 
 With love, tutel
