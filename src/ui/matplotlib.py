@@ -1,5 +1,6 @@
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from matplotlib.backends.backend_tkagg import NavigationToolbar2Tk
 
 
 def display_plot(root, x_values, y_values, deriv_values, root_values):
@@ -15,4 +16,8 @@ def display_plot(root, x_values, y_values, deriv_values, root_values):
 
     canvas = FigureCanvasTkAgg(fig, master=root)
     canvas.draw()
+
+    toolbar = NavigationToolbar2Tk(canvas, root)
+    toolbar.update()
+    toolbar.pack(side="top", fill="x")
     canvas.get_tk_widget().pack(fill="both", expand=True)
