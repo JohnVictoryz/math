@@ -10,5 +10,12 @@ try:
               \n--noTkinter dont use Tkinter
               """)
         exit
-except IndexError:    
+    else:
+        print(f"""{sys.argv[1]} Not A valid argument
+              \nThis program only supports this arguments
+              \n--help Print this message
+              \n--noTkinter dont use Tkinter
+              """)
+        exit
+except IndexError:
     startui(Controller())
